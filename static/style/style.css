@@ -6,7 +6,12 @@ https://www.freepik.com/search?format=search&query=wood%20fire%20sprite&type=vec
 */
 @font-face {
   font-family: 'Pokemon Solid';
-  src: url('/PokemonSolid.ttf');
+  src: url('../fonts/pokemon_solid.ttf');
+  font-style:normal;
+  font-weight:bold;
+  font-variant:normal;
+  text-decoration:inherit;
+  text-transform:none
 }
 
 /* @font-face {
