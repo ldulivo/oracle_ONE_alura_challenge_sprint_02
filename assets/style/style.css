@@ -4,7 +4,7 @@ https://www.dafont.com/pokemon.font
 https://www.freepik.com/search?format=search&query=wood%20fire%20sprite&type=vector
 
 */
-@font-face {
+/* @font-face {
   font-family: 'Pokemon Solid';
   src: url('https://ldulivo.github.io/assets/fonts/PokemonSolid.ttf');
 }
@@ -12,7 +12,7 @@ https://www.freepik.com/search?format=search&query=wood%20fire%20sprite&type=vec
 @font-face {
   font-family: 'Pokemon Hollow';
   src: url('https://ldulivo.github.io/assets/fonts/PokemonHollow.ttf');
-}
+} */
 
 * {
   margin: 0;
@@ -22,7 +22,7 @@ https://www.freepik.com/search?format=search&query=wood%20fire%20sprite&type=vec
 }
 
 h1 {
-  font-family: 'Pokemon Solid';
+  font-family: 'Pokemon Solid', sans-serif;
   color: #ffcc03;
   -webkit-text-stroke: 3px #3c59a8;
   letter-spacing: 5px;
