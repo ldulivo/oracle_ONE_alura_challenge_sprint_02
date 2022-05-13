@@ -123,6 +123,15 @@ h1 {
   text-transform: uppercase;
 }
 
+#textKeyAux {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+}
+
 .draw {
   width: 125px;
   height: 130px;

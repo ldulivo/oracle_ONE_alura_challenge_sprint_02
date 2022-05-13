@@ -7,6 +7,7 @@ let pokeHidden    // nombre del pokemon que hay que adivinar
 let playerLife    // vida del jugador
 
 const textKey = document.getElementById('textKey')
+const textKeyAux = document.getElementById('textKeyAux')
 const drawCanvas = document.getElementById('draw')
 const name_poke = document.getElementById('name_poke')
 const url_poke = document.getElementById('url_poke')
@@ -107,16 +108,33 @@ const drawHangman = (myDraw) => {
   return
 }
 
+
+/**
+ * listen for keys and check if it is in the hidden word
+ */
 const myKey = (e) => {
   let myLetter = textKey.value.toUpperCase();
-  //myLetter = myLetter.toUpperCase
-  console.log(myLetter);
   [...pokeHidden].map( (letter, index) => {
     if (letter === myLetter) {
       lineas_letras.childNodes[index].innerHTML = myLetter
     }
   })
-  textKey.value = ''  
+  textKey.value = ''
+  textKeyAux.focus()
+  textKey.focus()
+
+  checkPlayerWin()
+}
+
+/**
+ * check player win
+ */
+
+const checkPlayerWin = () => {
+  let win = true;
+  [...lineas_letras.childNodes].map( (li, index) => {
+    if (lineas_letras.childNodes[index].innerHTML === '') win = false;
+  })
 }
 
 /**
@@ -126,7 +144,7 @@ const Main = async () => {
   view = 0
 
   textKey.focus()
-  textKey.onkeyup = myKey
+  textKey.addEventListener("keyup", myKey)
   
   const random = Math.round(Math.random() * 99)
   const { namePokemon, urlPokemon} = await getPokemon(random)
