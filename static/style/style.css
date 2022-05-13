@@ -3,7 +3,26 @@ https://www.dafont.com/pokemon.font
 
 https://www.freepik.com/search?format=search&query=wood%20fire%20sprite&type=vector
 
+fogata:
+https://www.freepik.com/premium-vector/bonfire-animation-cartoon-burning-campfire-with-firewood-fire-flames-effect-animated-sprites-frames_16151706.htm#query=wood%20fire%20sprite&position=9&from_view=search
+
+huevo:
+https://www.freepik.com/free-vector/cartoon-dragon-ice-crystal-eggs-animation-with-whole-cracked-broken-shell-magic-fairy-tale-dinosaur-reptile-ui-game-assets-with-frozen-shell-isolated-gui-sprite-graphic-vector-illustration_26232371.htm#query=dino%20sprite&position=0&from_view=search
+
+pokeball:
+https://www.flaticon.com/free-icon/pokeball_188918
+
+
 */
+
+/*
+  setup
+*/
+
+:root {
+  --primary: rgb(244, 236, 236);
+}
+
 @font-face {
   font-family: 'Pokemon Solid';
   src: url('../fonts/pokemon_solid.ttf');
@@ -14,10 +33,10 @@ https://www.freepik.com/search?format=search&query=wood%20fire%20sprite&type=vec
   text-transform:none
 }
 
-/* @font-face {
+@font-face {
   font-family: 'Pokemon Hollow';
-  src: url('https://ldulivo.github.io/assets/fonts/PokemonHollow.ttf');
-} */
+  src: url('../fonts/pokemon_hollow.ttf');
+}
 
 * {
   margin: 0;
@@ -26,19 +45,125 @@ https://www.freepik.com/search?format=search&query=wood%20fire%20sprite&type=vec
   font-family: 'Gloria Hallelujah';
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  width: 100%;
+  background: #E5E5E5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+/*
+  container
+*/
+.container {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  max-height: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  position: absolute;
+  top: 40px;
+  left: 84px;
+  width: 32px;
+  height: 48px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.container header {
+  width: 100%;
+  height: 134px;
+  margin-top: 150px;
+}
+
+.container section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
 h1 {
   font-family: 'Pokemon Solid', sans-serif;
   color: #ffcc03;
-  -webkit-text-stroke: 3px #3c59a8;
+  -webkit-text-stroke: 4px #3c59a8;
   letter-spacing: 5px;
+  font-size: 3em;
+  width: 100%;
+  max-width: 375px;
+  text-align: center;
+}
+
+/*
+  play view
+*/
+
+#textKey {
+  /* display: none; */
+  text-transform: uppercase;
+}
+
+.draw {
+  width: 125px;
+  height: 130px;
 }
 
 h2 {
   font-family: 'Gloria Hallelujah', cursive;
+  text-transform: uppercase;
 }
 
 .quien_es {
   width: 300px;
   height: 300px;
   filter: brightness(0) blur(3px);
+}
+
+.lineas_letras {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.lineas_letras li {
+  width: 30px;
+  margin-right: 7px;
+  list-style: none;
+  text-align: center;
+  position: relative;
+  border-bottom: 2px solid #000;
+  font-size: 1.5rem;
+}
+
+/*
+  view
+*/
+
+.deactivate {
+  opacity: 0;
+}
+
+.view_activate {
+  
 }
