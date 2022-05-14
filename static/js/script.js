@@ -2,9 +2,11 @@
  * html element constants
  */
 
-let view          // control de vista de la app
-let pokeHidden    // nombre del pokemon que hay que adivinar
-let playerLife    // vida del jugador
+let view                // control de vista de la app
+let pokeHidden          // nombre del pokemon que hay que adivinar
+let playerLife          // vida del jugador
+let wrongLetters = ''   // letras incorrectas
+let myWin = false       // verifica si ganamos
 
 const textKey = document.getElementById('textKey')
 const textKeyAux = document.getElementById('textKeyAux')
@@ -13,6 +15,12 @@ const name_poke = document.getElementById('name_poke')
 const url_poke = document.getElementById('url_poke')
 const quien_es = document.getElementById('quien_es')
 const lineas_letras = document.getElementById('lineas_letras')
+
+const loser = document.getElementById('loser') // modal de fin del juego
+
+/******************************************************************
+  FUNCIONES PARA VISTA 3
+******************************************************************/
 
 /**
  * Function that gets a list of pokemon's
@@ -113,17 +121,39 @@ const drawHangman = (myDraw) => {
  * listen for keys and check if it is in the hidden word
  */
 const myKey = (e) => {
-  let myLetter = textKey.value.toUpperCase();
-  [...pokeHidden].map( (letter, index) => {
-    if (letter === myLetter) {
-      lineas_letras.childNodes[index].innerHTML = myLetter
+
+  if (!myWin) {
+    if (playerLife < 7) {
+      let correct = false;
+      let myLetter = textKey.value.toUpperCase();
+      [...pokeHidden].map( (letter, index) => {
+        if (letter === myLetter) {
+          lineas_letras.childNodes[index].innerHTML = myLetter
+          correct = true
+        }
+      })
+      
+      if (!correct) {
+        if (!wrongLetters.includes(myLetter)) {
+          wrongLetters += myLetter
+          playerLife++
+          drawHangman(playerLife)
+          console.log(wrongLetters)
+        }
+      }
+      
+      if (correct) myWin = checkPlayerWin()
+  
+    } 
+    if (playerLife >= 7) {
+      loser.classList.add('loser_active')
     }
-  })
+  }
+
+
   textKey.value = ''
   textKeyAux.focus()
   textKey.focus()
-
-  checkPlayerWin()
 }
 
 /**
@@ -135,13 +165,33 @@ const checkPlayerWin = () => {
   [...lineas_letras.childNodes].map( (li, index) => {
     if (lineas_letras.childNodes[index].innerHTML === '') win = false;
   })
+
+  if (win) {
+    quien_es.classList.add('quien_es_pokemon')
+  }
+
+  return win
 }
 
-/**
- * Main function
- */
+/******************************************************************
+  UTILS
+******************************************************************/
+
+const pokeRotate = (id) => {
+  const btn = document.getElementById(id)
+  btn.childNodes[1].classList.add('pokeRotateFooter')
+
+  setTimeout(() => {
+    btn.childNodes[1].classList.remove('pokeRotateFooter')
+  }, 1000);
+}
+
+/******************************************************************
+  Main function
+ ******************************************************************/
 const Main = async () => {
   view = 0
+  playerLife = 0
 
   textKey.focus()
   textKey.addEventListener("keyup", myKey)
@@ -154,14 +204,6 @@ const Main = async () => {
   quien_es.alt=`Pokemon ${namePokemon}`
   quien_es.src=`${await getImgPokemon(urlPokemon)}`
   lineDraws(namePokemon)
-  drawHangman(0)
-  drawHangman(1)
-  drawHangman(2)
-  drawHangman(3)
-  drawHangman(4)
-  drawHangman(5)
-  drawHangman(6)
-  drawHangman(7)
 }
 
 window.onload = Main()

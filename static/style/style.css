@@ -36,6 +36,11 @@ https://www.flaticon.com/free-icon/pokeball_188918
 @font-face {
   font-family: 'Pokemon Hollow';
   src: url('../fonts/pokemon_hollow.ttf');
+  font-style:normal;
+  font-weight:bold;
+  font-variant:normal;
+  text-decoration:inherit;
+  text-transform:none
 }
 
 * {
@@ -52,7 +57,11 @@ html {
 body {
   min-height: 100%;
   width: 100%;
-  background: #E5E5E5;
+  background: #ffd61c;
+  background-image: url(../img/pikachu.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: right;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,8 +87,8 @@ body {
 
 .logo {
   position: absolute;
-  top: 40px;
-  left: 84px;
+  top: 24px;
+  left: 16px;
   width: 32px;
   height: 48px;
 }
@@ -94,6 +103,8 @@ body {
   width: 100%;
   height: 134px;
   margin-top: 150px;
+  display: flex;
+  justify-content: center;
 }
 
 .container section {
@@ -115,12 +126,85 @@ h1 {
 }
 
 /*
+  play footer
+*/
+
+.container footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  z-index: 10;
+}
+
+.container footer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  width: 343px;
+  height: 85px;
+  border: 6px solid #434a54;
+  border-radius: 24px;
+  position: relative;
+  font-size: 1.7em;
+}
+
+.container footer button img {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 10px;
+  border: 6px solid #434a54;
+  border-radius: 50%;
+}
+
+#btn1 {
+  background: #ed5564;
+}
+
+#btn2 {
+  background: #e6e9ed;
+}
+
+.pokeRotateFooter {
+  animation: pokeRotateFooterAnimation .6s infinite;
+}/* crear un onclick para que anime al objeto y no este en after*/
+
+@keyframes pokeRotateFooterAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(365deg);
+  }
+}
+
+/*
   play view
 */
 
 #textKey {
-  /* display: none; */
   text-transform: uppercase;
+  position: relative;
+  left: -110px;
+  color: transparent;
+  background: transparent;
+  outline: none;
+  border: none;
+  background-image: url(../svg/keyboard.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
+
+#textKey:focus,
+#textKey:active {
+  outline: none;
+  border: none;
 }
 
 #textKeyAux {
@@ -146,6 +230,11 @@ h2 {
   width: 300px;
   height: 300px;
   filter: brightness(0) blur(3px);
+}
+
+.quien_es_pokemon {
+  transition: all ease 1s;
+  filter: brightness(1) blur(0px);
 }
 
 .lineas_letras {
@@ -175,4 +264,72 @@ h2 {
 
 .view_activate {
   
+}
+
+/*
+  loser
+*/
+
+.loser {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+
+.loser h2 {
+  font-family: 'Pokemon Solid', sans-serif;
+  color: #fff;
+  -webkit-text-stroke: 4px #3c59a8;
+  font-size: 4rem;
+  letter-spacing: 6px;
+}
+
+.loser div {
+  width: 265px;
+  height: 388px;
+  background: url('../img/fire.png');
+  margin: 0 auto;
+  animation: fire 1s infinite steps(4);
+}
+
+@keyframes fire {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 1060px;
+  }
+}
+
+.loser_active {
+  display: flex !important;
+}
+
+@media (min-width: 768px) {
+  .container footer {
+    flex-direction: row;
+  }.logo {
+    position: absolute;
+    top: 40px;
+    left: 74px;
+    width: 31px;
+    height: 47px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    position: absolute;
+    top: 40px;
+    left: 84px;
+    width: 32px;
+    height: 48px;
+  }
 }

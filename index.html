@@ -30,7 +30,6 @@
     </header>
 
     <main>
-
       <!-- initial view -->
       <section class="view_0" id="view_0">
   
@@ -43,17 +42,32 @@
       
       <!-- play view -->
       <section class="view_2" id="view_2">
-        <input type="text" id="textKey">
-        <input type="text" id="textKeyAux">
         <canvas class="draw" id="draw"></canvas>
         <h2 class="name_poke" id="name_poke"></h2>
         <ul class="lineas_letras" id="lineas_letras"></ul>
+        <input type="text" id="textKey">
+        <input type="text" id="textKeyAux">
         <img src="" alt="" class="quien_es" id="quien_es">
       </section>
-
     </main>
 
+    <footer>
+      <button id="btn1" onclick="pokeRotate('btn1')">
+        <img src="./static/svg/pokeball.svg" alt="pokeball">
+        <p>Nuevo juego</p>
+      </button>
 
+      <button id="btn2" onclick="pokeRotate('btn2')">
+        <img src="./static/svg/pokeball.svg" alt="pokeball">
+        <p>Desistir</p>
+      </button>
+    </footer>
+
+  </div>
+
+  <div class="loser" id="loser">
+    <h2>Perdiste</h2>
+    <div></div>
   </div>
 
   <script src="./static/js/script.js"></script>
