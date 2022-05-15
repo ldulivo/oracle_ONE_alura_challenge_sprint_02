@@ -13,7 +13,7 @@ const poke_body = document.getElementById('poke_body')
 const textKey = document.getElementById('textKey')
 const textKeyAux = document.getElementById('textKeyAux')
 const drawCanvas = document.getElementById('draw')
-const name_poke = document.getElementById('name_poke')
+const h2wrongLetters = document.getElementById('h2wrongLetters')
 const url_poke = document.getElementById('url_poke')
 const quien_es = document.getElementById('quien_es')
 const lineas_letras = document.getElementById('lineas_letras')
@@ -180,7 +180,7 @@ const myKey = (e) => {
           wrongLetters += myLetter
           playerLife++
           drawHangman(playerLife)
-          console.log(wrongLetters)
+          h2wrongLetters.innerText = wrongLetters
         }
       }
       
@@ -266,7 +266,7 @@ const Main = async () => {
   const { namePokemon, urlPokemon} = await getPokemon(random)
   pokeHidden = namePokemon;
 
-  name_poke.innerHTML = namePokemon
+  //h2wrongLetters.innerHTML = wrongLetters
   quien_es.alt=`Pokemon ${namePokemon}`
   quien_es.src=`${await getImgPokemon(urlPokemon)}`
   lineDraws(namePokemon)

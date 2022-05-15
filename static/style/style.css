@@ -25,7 +25,14 @@ https://stickers.wiki/es/telegram/pikachudetective/
 */
 
 :root {
-  --primary: rgb(244, 236, 236);
+  --primary:#ffd61c;
+  --secondary: #3c59a8;
+  --gray: #434a54;
+  --red: #ed5564;
+  --white: #e6e9ed;
+  --purple: #7137c8;
+  --light_primary: #ffed99;
+
 }
 
 @font-face {
@@ -62,11 +69,7 @@ html {
 body {
   min-height: 100%;
   width: 100%;
-  background: #ffd61c;
-  background-size: 200px;
-  background-repeat: no-repeat;
-  background-position-x: left;
-  background-position-y: center;
+  background: var(--primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,8 +152,8 @@ body {
 
 h1 {
   font-family: 'Pokemon Solid', sans-serif;
-  color: #ffcc03;
-  -webkit-text-stroke: 4px #3c59a8;
+  color: var(--primary);
+  -webkit-text-stroke: 4px var(--secondary);
   letter-spacing: 5px;
   font-size: 3em;
   width: 100%;
@@ -179,7 +182,7 @@ h1 {
   padding: 24px;
   width: 343px;
   height: 85px;
-  border: 6px solid #434a54;
+  border: 6px solid var(--gray);
   border-radius: 24px;
   position: relative;
   font-size: 1.7em;
@@ -190,16 +193,16 @@ h1 {
   width: 50px;
   height: 50px;
   left: 10px;
-  border: 6px solid #434a54;
+  border: 6px solid var(--gray);
   border-radius: 50%;
 }
 
 #btn1 {
-  background: #ed5564;
+  background: var(--red);
 }
 
 #btn2 {
-  background: #e6e9ed;
+  background: var(--white);
 }
 
 .pokeRotateFooter {
@@ -223,8 +226,8 @@ h1 {
   text-transform: uppercase;
   position: relative;
   left: -110px;
-  color: #ffd61c;
-  background: #ffed99;
+  color: var(--primary);
+  background: var(--light_primary);
   outline: none;
   border: none;
   width: 77px;
@@ -278,6 +281,7 @@ h1 {
 h2 {
   font-family: 'Gloria Hallelujah', cursive;
   text-transform: uppercase;
+  color: var(--purple);
 }
 
 .quien_es {
@@ -341,7 +345,7 @@ h2 {
 .loser h2 {
   font-family: 'Pokemon Solid', sans-serif;
   color: #fff;
-  -webkit-text-stroke: 4px #3c59a8;
+  -webkit-text-stroke: 4px var(--secondary);
   font-size: 4rem;
   letter-spacing: 6px;
   text-align: center;
