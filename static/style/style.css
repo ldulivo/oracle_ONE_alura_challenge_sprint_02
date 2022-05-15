@@ -12,6 +12,11 @@ https://www.freepik.com/free-vector/cartoon-dragon-ice-crystal-eggs-animation-wi
 pokeball:
 https://www.flaticon.com/free-icon/pokeball_188918
 
+sprite boy:
+https://www.deviantart.com/purplezaffre/art/Team-Aqua-Boss-Archie-867127814
+
+stickers pikachu:
+https://stickers.wiki/es/telegram/pikachudetective/
 
 */
 
@@ -58,15 +63,39 @@ body {
   min-height: 100%;
   width: 100%;
   background: #ffd61c;
-  background-image: url(../img/pikachu.jpg);
-  background-size: contain;
+  background-size: 200px;
   background-repeat: no-repeat;
-  background-position-x: right;
+  background-position-x: left;
+  background-position-y: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
+}
+
+.body_background0 {
+  background-image: url(../img/pikachu0.webp);
+}
+
+.body_background1 {
+  background-image: url(../img/pikachu1.webp);
+}
+
+.body_background2 {
+  background-image: url(../img/pikachu2.webp);
+}
+
+.body_background3 {
+  background-image: url(../img/pikachu3.webp);
+}
+
+.body_background4 {
+  background-image: url(../img/pikachu4.webp);
+}
+
+.body_background5 {
+  background-image: url(../img/pikachu5.webp);
 }
 
 /*
@@ -190,15 +219,14 @@ h1 {
   text-transform: uppercase;
   position: relative;
   left: -110px;
-  color: transparent;
-  background: transparent;
+  color: #ffd61c;
+  background: #ffed99;
   outline: none;
   border: none;
-  background-image: url(../svg/keyboard.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
+  width: 77px;
+  height: 25px;
+  padding: 5px;
+  font-size: 10px;
 }
 
 #textKey:focus,
@@ -214,6 +242,28 @@ h1 {
   width: 1px;
   height: 1px;
   font-size: 1px;
+}
+
+/*
+  draw
+*/
+
+.body_draw {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  height: 200px;
+}
+
+.picachu_draw {
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .draw {
@@ -235,6 +285,7 @@ h2 {
 .quien_es_pokemon {
   transition: all ease 1s;
   filter: brightness(1) blur(0px);
+  z-index: 10;
 }
 
 .lineas_letras {
@@ -280,7 +331,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px) grayscale(1);
 }
 
 .loser h2 {
@@ -289,33 +340,38 @@ h2 {
   -webkit-text-stroke: 4px #3c59a8;
   font-size: 4rem;
   letter-spacing: 6px;
+  text-align: center;
 }
 
 .loser div {
   width: 265px;
   height: 388px;
-  background: url('../img/fire.png');
+  background: url(../img/pikachu_loser.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
   margin: 0 auto;
-  animation: fire 1s infinite steps(4);
-}
-
-@keyframes fire {
-  0% {
-    background-position-x: 0px;
-  }
-  100% {
-    background-position-x: 1060px;
-  }
 }
 
 .loser_active {
   display: flex !important;
 }
 
+.winer div{
+  background: url(../img/pikachu_winer.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 @media (min-width: 768px) {
+  body {
+    background-position-x: calc(50% - 130px);
+  }
+
   .container footer {
     flex-direction: row;
-  }.logo {
+  }
+  
+  .logo {
     position: absolute;
     top: 40px;
     left: 74px;

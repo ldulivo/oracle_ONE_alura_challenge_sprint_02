@@ -8,6 +8,8 @@ let playerLife          // vida del jugador
 let wrongLetters = ''   // letras incorrectas
 let myWin = false       // verifica si ganamos
 
+const poke_body = document.getElementById('poke_body')
+
 const textKey = document.getElementById('textKey')
 const textKeyAux = document.getElementById('textKeyAux')
 const drawCanvas = document.getElementById('draw')
@@ -65,6 +67,13 @@ const lineDraws = (namePokemon) => {
 
 const drawHangman = (myDraw) => {
   var ctx = drawCanvas.getContext('2d');
+  ctx.strokeStyle = '#3c59a8';
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.lineWidth = 5;
+
+  poke_body.classList.add(`body_background${playerLife}`)
+
   switch (myDraw) {
     case 1: // horca
       ctx.moveTo(10,130)
@@ -73,6 +82,7 @@ const drawHangman = (myDraw) => {
       ctx.lineTo(70,20)
       ctx.lineTo(160,20)
       ctx.lineTo(160,35)
+      ctx.strokeStyle = '#fff';
       break;
       
     case 2: // cabeza
@@ -146,6 +156,7 @@ const myKey = (e) => {
   
     } 
     if (playerLife >= 7) {
+      loser.childNodes[1].innerHTML = 'uff!! casi lo logras!'
       loser.classList.add('loser_active')
     }
   }
@@ -167,6 +178,9 @@ const checkPlayerWin = () => {
   })
 
   if (win) {
+    loser.childNodes[1].innerHTML = 'Ganaste!!'
+    loser.classList.add('winer')
+    loser.classList.add('loser_active')
     quien_es.classList.add('quien_es_pokemon')
   }
 
@@ -192,6 +206,8 @@ const pokeRotate = (id) => {
 const Main = async () => {
   view = 0
   playerLife = 0
+
+  poke_body.classList.add(`body_background${playerLife}`)
 
   textKey.focus()
   textKey.addEventListener("keyup", myKey)

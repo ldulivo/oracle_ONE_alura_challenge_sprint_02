@@ -42,10 +42,13 @@
       
       <!-- play view -->
       <section class="view_2" id="view_2">
-        <canvas class="draw" id="draw"></canvas>
+        <div class="body_draw">
+          <div class="picachu_draw" id="poke_body"></div>
+          <canvas class="draw" id="draw"></canvas>
+        </div>
+        <input type="text" id="textKey" placeholder="click aquí">
         <h2 class="name_poke" id="name_poke"></h2>
         <ul class="lineas_letras" id="lineas_letras"></ul>
-        <input type="text" id="textKey">
         <input type="text" id="textKeyAux">
         <img src="" alt="" class="quien_es" id="quien_es">
       </section>
@@ -66,7 +69,7 @@
   </div>
 
   <div class="loser" id="loser">
-    <h2>Perdiste</h2>
+    <h2>uff!! casi lo logras!</h2>
     <div></div>
   </div>
 
