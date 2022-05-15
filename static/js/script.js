@@ -265,15 +265,10 @@ const Main = async () => {
   const random = Math.round(Math.random() * 99)
   const { namePokemon, urlPokemon} = await getPokemon(random)
   pokeHidden = namePokemon;
-
-  //h2wrongLetters.innerHTML = wrongLetters
+  
   quien_es.alt=`Pokemon ${namePokemon}`
   quien_es.src=`${await getImgPokemon(urlPokemon)}`
   lineDraws(namePokemon)
 }
 
 window.onload = Main()
-
-// https://pokeapi.co/
-// https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0
-// https://pokeapi.co/api/v2/pokemon/1/
