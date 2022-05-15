@@ -25,10 +25,6 @@ let svg = document.createElementNS(SVG_NS, 'svg');
 svg.setAttributeNS(null, "viewBox", "0 0 125 130");
 svg.setAttributeNS(null, "width", "125");
 svg.setAttributeNS(null, "height", "130");
-//svg.setAttributeNS(null, "transform", "translate(-36.240417,-147.87781)");
-/* let symbol = document.createElementNS(SVG_NS, 'symbol');
-svg.appendChild(symbol); */
-
 
 
 /******************************************************************
@@ -66,7 +62,6 @@ const lineDraws = (namePokemon) => {
   let lineas = "";
 
   [...namePokemon].map( name => {
-    /* lineas += `<li>${name}</li>` */
     lineas += `<li></li>`
   })
   lineas_letras.innerHTML = lineas
@@ -77,11 +72,6 @@ const lineDraws = (namePokemon) => {
  */
 
 const drawHangman = (myDraw) => {
-  /* var ctx = drawCanvas.getContext('2d');
-  ctx.strokeStyle = '#3c59a8';
-  ctx.lineJoin = 'round';
-  ctx.lineCap = 'round';
-  ctx.lineWidth = 5; */
 
   poke_body.classList.add(`body_background${playerLife}`)
 
@@ -90,15 +80,7 @@ const drawHangman = (myDraw) => {
       let horca = document.createElementNS(SVG_NS, 'path');
       horca.setAttributeNS(null, 'style', 'fill:none;stroke:#7137c8;stroke-width:3.56593204;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1')
       horca.setAttributeNS(null, 'd', 'm 53.403615,74.346585 c 0,0 15.08706,-11.424152 18.235313,-17.755439 7.763397,-15.612568 2.888131,-54.7321619 2.888131,-54.7321619')
-      //horca.setAttributeNS(null, 'transform', 'translate(26, -147)')
       drawCanvas.childNodes[1].appendChild(horca)
-      /* ctx.moveTo(10,130)
-      ctx.lineTo(200,130)
-      ctx.moveTo(70,130)
-      ctx.lineTo(70,20)
-      ctx.lineTo(160,20)
-      ctx.lineTo(160,35)
-      ctx.strokeStyle = '#fff'; */
       break;
       
     case 2: // cabeza
@@ -132,8 +114,6 @@ const drawHangman = (myDraw) => {
       cabeza.appendChild(ojo_i1)
       cabeza.appendChild(ojo_i2)
       drawCanvas.childNodes[1].appendChild(cabeza)
-      /* ctx.beginPath()
-      ctx.arc(160,45,10,0,Math.PI*2) */
       break;
       
     case 3: // cuerpo
@@ -142,8 +122,6 @@ const drawHangman = (myDraw) => {
       cuerpo.setAttributeNS(null, 'style', 'opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#7137c8;stroke-width:2.03767562;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1')
       cuerpo.setAttributeNS(null, 'transform', 'rotate(-8.0164331)')
       drawCanvas.childNodes[1].appendChild(cuerpo)
-      /* ctx.moveTo(160,55)
-      ctx.lineTo(160,95) */
       break;
     
     case 4: // brazo izquierdo
@@ -151,9 +129,6 @@ const drawHangman = (myDraw) => {
       brazo_i.setAttributeNS(null, 'd', 'm 53.403615,74.346585 -10.79722,24.71364 10.31734,-18.23532 z')
       brazo_i.setAttributeNS(null, 'style', 'fill:none;stroke:#7137c8;stroke-width:2.03767562;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1')
       drawCanvas.childNodes[1].appendChild(brazo_i)
-      /* ctx.beginPath()
-      ctx.moveTo(160,60)
-      ctx.lineTo(150,80) */
       break;
     
     case 5: // brazo derecho
@@ -161,9 +136,6 @@ const drawHangman = (myDraw) => {
       brazo_d.setAttributeNS(null, 'd', 'm 69.479484,71.467315 -4.31889,16.31581 c 0,0 4.306982,-14.80668 6.860073,-14.31022 0.808298,0.15718 -2.541183,-2.00559 -2.541183,-2.00559 z')
       brazo_d.setAttributeNS(null, 'style', 'fill:none;stroke:#7137c8;stroke-width:2.03767562;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1')
       drawCanvas.childNodes[1].appendChild(brazo_d)
-      /* ctx.beginPath()
-      ctx.moveTo(160,60)
-      ctx.lineTo(170,80) */
       break;
     
     case 6: // pierna izquierda
@@ -171,9 +143,6 @@ const drawHangman = (myDraw) => {
       pierna_i.setAttributeNS(null, 'd', 'm 61.137365,99.271045 c 3.817569,2.961885 -1.735289,28.581775 -1.735289,28.581775 l 4.798766,-27.83284 c 0,0 -3.761442,-1.290445 -3.063477,-0.748935 z')
       pierna_i.setAttributeNS(null, 'style', 'fill:none;stroke:#7137c8;stroke-width:2.03767562;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1')
       drawCanvas.childNodes[1].appendChild(pierna_i)
-      /* ctx.beginPath()
-      ctx.moveTo(160,95)
-      ctx.lineTo(150,120) */
       break;
     
     case 7: // pierna derecha
@@ -181,15 +150,11 @@ const drawHangman = (myDraw) => {
       pierna_d.setAttributeNS(null, 'd', 'm 71.383186,97.904195 -0.464073,25.149855 c 0,0 0.884596,-24.304845 4.318888,-30.472165 0.874411,-1.57026 -3.854815,5.32231 -3.854815,5.32231 z')
       pierna_d.setAttributeNS(null, 'style', 'fill:none;stroke:#7137c8;stroke-width:2.03767562;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1')
       drawCanvas.childNodes[1].appendChild(pierna_d)
-      /* ctx.beginPath()
-      ctx.moveTo(160,95)
-      ctx.lineTo(170,120) */
       break;
   
     default:
       break;
   }
-  /* ctx.stroke() */
   return
 }
 
@@ -198,11 +163,11 @@ const drawHangman = (myDraw) => {
  * listen for keys and check if it is in the hidden word
  */
 const myKey = (e) => {
+  let myLetter = textKey.value.toUpperCase();
 
-  if (!myWin) {
+  if (!myWin && noCharacters(myLetter)) {
     if (playerLife < 7) {
       let correct = false;
-      let myLetter = textKey.value.toUpperCase();
       [...pokeHidden].map( (letter, index) => {
         if (letter === myLetter) {
           lineas_letras.childNodes[index].innerHTML = myLetter
@@ -257,7 +222,9 @@ const checkPlayerWin = () => {
 /******************************************************************
   UTILS
 ******************************************************************/
-
+/**
+ * hace girar pokeball
+ */
 const pokeRotate = (id) => {
   const btn = document.getElementById(id)
   btn.childNodes[1].classList.add('pokeRotateFooter')
@@ -265,6 +232,20 @@ const pokeRotate = (id) => {
   setTimeout(() => {
     btn.childNodes[1].classList.remove('pokeRotateFooter')
   }, 1000);
+}
+
+/**
+ * detecta si la palabra tiene solo letras mayusculas o signo de guión ( - )
+ */
+const noCharacters = (t) => {
+  let re = /[A-Z]/;
+  const mayusculas = (re.test(t)); //return true si es mayuscula
+  
+  const minus = (t === '-')
+
+  if ( mayusculas || minus ) return true;
+
+  return false;
 }
 
 /******************************************************************
