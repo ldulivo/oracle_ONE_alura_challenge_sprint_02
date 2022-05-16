@@ -2,6 +2,12 @@
 
 Crea tu propio juego del ahorcado con Javascript
 
+# Autor
+
+D'Ulivo Leonardo
+
+![](https://ldulivo.github.io/oracle_ONE_alura_challenge_sprint_02/static/img/Screenshot.png){width='100px'}
+
 # Tecnologías
 
 - HTML
