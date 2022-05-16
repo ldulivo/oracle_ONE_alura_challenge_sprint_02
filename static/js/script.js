@@ -8,6 +8,10 @@ let playerLife          // vida del jugador
 let wrongLetters = ''   // letras incorrectas
 let myWin = false       // verifica si ganamos
 
+// palabra secreta introducida por el usuario
+let myPlayerSecret = document.getElementById('myPlayerSecret')
+myPlayerSecret.value = ''
+
 const poke_body = document.getElementById('poke_body')
 
 const textKey = document.getElementById('textKey')
@@ -231,6 +235,20 @@ const pokeRotate = (id) => {
 
   setTimeout(() => {
     btn.childNodes[1].classList.remove('pokeRotateFooter')
+
+    if (id === 'btn1') {
+      if (view === 2 && myPlayerSecret.value !== '') {
+        view = 1
+      } else {
+        view = 2
+      }
+    } else {
+      myPlayerSecret.value = '';
+      (view === 0) ? view = 1 : view = 0
+    }
+    resetStates()
+    viewFunction()
+
   }, 1000);
 }
 
@@ -248,27 +266,105 @@ const noCharacters = (t) => {
   return false;
 }
 
+/**
+ * reset states
+ */
+const resetStates = () => {
+  playerLife = 0
+  wrongLetters = ''
+  myWin = false
+
+  for (let index = 0; index < 7; index++) {
+    poke_body.classList.remove(`body_background${index}`)
+  }
+
+  loser.classList.remove('winer')
+  loser.classList.remove('loser_active')
+  quien_es.classList.remove('quien_es_pokemon')
+  
+  lineas_letras.innerHTML = ''
+  h2wrongLetters.innerText = ''
+  if (drawCanvas.childElementCount > 0) {
+    if (drawCanvas.childNodes[1].childElementCount > 0) {
+      [...drawCanvas.children[0].childNodes].map(d =>{
+        drawCanvas.children[0].removeChild(d)
+      })
+    }
+    drawCanvas.removeChild(svg)
+  }
+}
+
+/******************************************************************
+  View function
+ ******************************************************************/
+const viewFunction = async () => {
+  switch (view) {
+    case 0:
+      document.getElementById('view_0').classList.add('view_activate')
+      document.getElementById('view_1').classList.remove('view_activate')
+      document.getElementById('view_2').classList.remove('view_activate')
+      document.getElementById('allBtn').classList.add('allBtn')
+
+      document.getElementById('btn1').childNodes[3].innerText = 'Iniciar juego'
+      document.getElementById('btn2').childNodes[3].innerText = 'Agregar nueva palabra'
+      break;
+
+    case 1:
+      document.getElementById('view_0').classList.remove('view_activate')
+      document.getElementById('view_1').classList.add('view_activate')
+      document.getElementById('view_2').classList.remove('view_activate')
+      document.getElementById('allBtn').classList.remove('allBtn')
+
+      document.getElementById('btn1').childNodes[3].innerText = 'Guardar y empezar'
+      document.getElementById('btn2').childNodes[3].innerText = 'Cancelar'
+      break;
+    
+    case 2:
+      document.getElementById('view_0').classList.remove('view_activate')
+      document.getElementById('view_1').classList.remove('view_activate')
+      document.getElementById('view_2').classList.add('view_activate')
+      document.getElementById('allBtn').classList.remove('allBtn')
+
+      document.getElementById('btn1').childNodes[3].innerText = 'Nuevo juego'
+      document.getElementById('btn2').childNodes[3].innerText = 'Desistir'
+
+      drawCanvas.appendChild(svg)
+      
+      poke_body.classList.add(`body_background${playerLife}`)
+      
+      textKey.focus()
+      textKey.addEventListener("keyup", myKey)
+      
+      if (myPlayerSecret.value !== '') {
+        pokeHidden = myPlayerSecret.value.toUpperCase()
+        lineDraws(pokeHidden)
+        break;
+      }
+      const random = Math.round(Math.random() * 99)
+      const { namePokemon, urlPokemon} = await getPokemon(random)
+      pokeHidden = namePokemon;
+      
+      quien_es.alt=`Pokemon ${namePokemon}`
+      quien_es.src=`${await getImgPokemon(urlPokemon)}`
+      //
+      //
+      lineDraws(namePokemon)
+      break;
+  
+    default:
+      break;
+  }
+}
+
 /******************************************************************
   Main function
  ******************************************************************/
-const Main = async () => {
+const Main = () => {
   view = 0
-  playerLife = 0
-
-  drawCanvas.appendChild(svg)
-
-  poke_body.classList.add(`body_background${playerLife}`)
-
-  textKey.focus()
-  textKey.addEventListener("keyup", myKey)
-  
-  const random = Math.round(Math.random() * 99)
-  const { namePokemon, urlPokemon} = await getPokemon(random)
-  pokeHidden = namePokemon;
-  
-  quien_es.alt=`Pokemon ${namePokemon}`
-  quien_es.src=`${await getImgPokemon(urlPokemon)}`
-  lineDraws(namePokemon)
+  viewFunction()
 }
 
+/******************************************************************
+  onLoad
+ ******************************************************************/
 window.onload = Main()

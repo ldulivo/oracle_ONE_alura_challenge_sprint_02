@@ -23,7 +23,7 @@ fetch: https://pokeapi.co/api/v2/pokemon?limit=100&offset=0
   https://www.dafont.com/pokemon.font
 
 - pokeball:
-  https://www.flaticon.com/free-icon/pokeball_188918
+  https://www.svgrepo.com/vectors/pokemon/
 
 - stickers pikachu:
   https://stickers.wiki/es/telegram/pikachudetective/
