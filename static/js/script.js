@@ -1,5 +1,6 @@
 /**
- * html element constants
+ * El script comienza en la última línea
+ * con un window.onload llamando la función main()
  */
 
 let view                // control de vista de la app
@@ -14,29 +15,29 @@ myPlayerSecret.value = ''
 
 const poke_body = document.getElementById('poke_body')
 
+// etiquetas view 2
 const textKey = document.getElementById('textKey')
 const textKeyAux = document.getElementById('textKeyAux')
 const drawCanvas = document.getElementById('draw')
 const h2wrongLetters = document.getElementById('h2wrongLetters')
 const url_poke = document.getElementById('url_poke')
 const quien_es = document.getElementById('quien_es')
-const lineas_letras = document.getElementById('lineas_letras')
+const lineas_letras = document.getElementById('lineas_letras') // fin: etiquetas view 2
 
 const loser = document.getElementById('loser') // modal de fin del juego
 
+// SVG: Constantes para dibujo de ahorcado
 const SVG_NS = 'http://www.w3.org/2000/svg';
 let svg = document.createElementNS(SVG_NS, 'svg');
 svg.setAttributeNS(null, "viewBox", "0 0 125 130");
 svg.setAttributeNS(null, "width", "125");
-svg.setAttributeNS(null, "height", "130");
-
+svg.setAttributeNS(null, "height", "130"); // fin: SVG
 
 /******************************************************************
   FUNCIONES PARA VISTA 2
 ******************************************************************/
 const playerSecret = () => {
   let myLetter = myPlayerSecret.value.toUpperCase();
-  console.log(myLetter.length)
 
   if (noCharacters( myLetter.slice(myLetter.length - 1, myLetter.length)) ) {
     myPlayerSecret.value = myLetter
@@ -359,6 +360,8 @@ const viewFunction = async () => {
       
       if (myPlayerSecret.value !== '') {
         pokeHidden = myPlayerSecret.value.toUpperCase()
+        quien_es.alt=`Pokemon Pikachu`
+        quien_es.src='./static/img/pikachu_friend.webp'
         lineDraws(pokeHidden)
         break;
       }
