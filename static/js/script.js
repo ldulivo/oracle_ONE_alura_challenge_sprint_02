@@ -32,6 +32,23 @@ svg.setAttributeNS(null, "height", "130");
 
 
 /******************************************************************
+  FUNCIONES PARA VISTA 2
+******************************************************************/
+const playerSecret = () => {
+  let myLetter = myPlayerSecret.value.toUpperCase();
+  console.log(myLetter.length)
+
+  if (noCharacters( myLetter.slice(myLetter.length - 1, myLetter.length)) ) {
+    myPlayerSecret.value = myLetter
+  } else {
+    myPlayerSecret.value = myLetter.slice(0, myLetter.length - 1)
+  }
+
+  if (myPlayerSecret.value.length > 10) myPlayerSecret.value = myPlayerSecret.value.slice(0, 10)
+
+}
+
+/******************************************************************
   FUNCIONES PARA VISTA 3
 ******************************************************************/
 
@@ -270,6 +287,9 @@ const noCharacters = (t) => {
  * reset states
  */
 const resetStates = () => {
+  textKey.removeEventListener("keyup", myKey)
+  myPlayerSecret.removeEventListener("keyup", playerSecret)
+
   playerLife = 0
   wrongLetters = ''
   myWin = false
@@ -317,6 +337,8 @@ const viewFunction = async () => {
 
       document.getElementById('btn1').childNodes[3].innerText = 'Guardar y empezar'
       document.getElementById('btn2').childNodes[3].innerText = 'Cancelar'
+      myPlayerSecret.focus()
+      myPlayerSecret.addEventListener("keyup", playerSecret)
       break;
     
     case 2:
