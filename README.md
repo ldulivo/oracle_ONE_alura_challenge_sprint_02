@@ -4,7 +4,7 @@ Crea tu propio juego del ahorcado con Javascript
 
 # Juegalo aquí
 
-![Página web del juego!!](https://ldulivo.github.io/oracle_ONE_alura_challenge_sprint_02/)
+- Página web del juego!!: https://ldulivo.github.io/oracle_ONE_alura_challenge_sprint_02/
 
 # Autor
 
@@ -31,9 +31,7 @@ Es el juego del ahorcado. Hay que adivinar el nombre del pokemon que aparece al 
 
 - Fonts:
   https://www.dafont.com/pokemon.font
-
 - pokeball:
   https://www.svgrepo.com/vectors/pokemon/
-
 - stickers pikachu:
   https://stickers.wiki/es/telegram/pikachudetective/
