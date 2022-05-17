@@ -2,11 +2,15 @@
 
 Crea tu propio juego del ahorcado con Javascript
 
+# Juegalo aquí
+
+![Página web del juego!!](https://ldulivo.github.io/oracle_ONE_alura_challenge_sprint_02/)
+
 # Autor
 
 D'Ulivo Leonardo
 
-![](https://ldulivo.github.io/oracle_ONE_alura_challenge_sprint_02/static/img/Screenshot.png){width='100px'}
+![](https://ldulivo.github.io/oracle_ONE_alura_challenge_sprint_02/static/img/Screenshot.png)
 
 # Tecnologías
 
@@ -20,8 +24,8 @@ Es el juego del ahorcado. Hay que adivinar el nombre del pokemon que aparece al 
 
 # API: pokeapi.co
 
-https://pokeapi.co/
-fetch: https://pokeapi.co/api/v2/pokemon?limit=100&offset=0
+- https://pokeapi.co/
+- fetch: https://pokeapi.co/api/v2/pokemon?limit=100&offset=0
 
 # Recursos
 
